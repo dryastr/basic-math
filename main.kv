@@ -1,0 +1,576 @@
+#:kivy 1.0.9
+
+ScreenManager:
+    HomeGame:
+    MathGame:
+    BerhitungGame:
+    PenjumlahanGame:
+    PenguranganGame:
+    TekaTekaGame:
+    PengaturanGame:
+
+<HomeGame>:
+    name: 'homegame'
+    FloatLayout:
+        Image:
+            source: 'image/home.gif'
+            allow_stretch: True
+            keep_ratio: False
+            size_hint: None, None
+            size: root.width, root.height
+            anim_delay: 0.05
+            anim_loop: 1
+            pos: 0, 0
+
+    MDIconButton:
+        icon: "image/play.png"
+        text: "Math Game"
+        size_hint: None, None
+        icon_size: dp(250)
+        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+        on_release: app.root.current = 'mathgame'
+
+<MathGame>:
+
+    name: 'mathgame'
+    FloatLayout:
+        Image:
+            source: 'image/bg.png'
+            allow_stretch: True
+            keep_ratio: False
+            size_hint: None, None
+            size: root.width, root.height
+            pos: 0, 0
+
+    MDBoxLayout:
+        size: root.size
+        orientation: "vertical"
+        padding: [10,10]
+
+        MDLabel:
+            text: "Matematika Seru!"
+            size_hint: 1, 0.1
+            font_style: "H2"
+            font_name: "BubbleGum.ttf"
+            theme_text_color: "Custom"
+            text_color: 0, 0, 0.55, 1
+            halign: "center"
+
+        MDGridLayout:
+            cols: 2
+            size_hint: 0.5, 0.3
+            row_default_height: 150
+            row_force_default: True
+            spacing: [50, 50]
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+            MDRaisedButton:
+                size_hint: None, None
+                size: 150, 150
+                md_bg_color: 0.2, 0.6, 0.8, 1
+                on_release: app.root.current = 'berhitunggame'
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    Image: 
+                        source: 'image/math1.jpg'
+                        size_hint_y: None
+                        height: 100
+                    MDLabel:
+                        text: "Berhitung"
+                        font_name: "BubbleGum.ttf"
+                        halign: 'center'
+            
+            MDRaisedButton:
+                size_hint: None, None
+                size: 150, 150
+                md_bg_color: 0.2, 0.6, 0.8, 1
+                on_release: app.root.current = 'penjumlahangame'
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    Image:
+                        source: 'image/123.png'
+                        size_hint_y: None
+                        height: 100
+                    MDLabel:
+                        text: "Penjumlahan"
+                        font_name: "BubbleGum.ttf"
+                        halign: 'center'
+
+            MDRaisedButton:
+                size_hint: None, None
+                size: 150, 150
+                md_bg_color: 0.2, 0.6, 0.8, 1
+                on_release: app.root.current = 'pengurangangame'
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    Image:
+                        source: 'image/berhitung.png'
+                        size_hint_y: None
+                        height: 100
+                    MDLabel:
+                        text: "Pengurangan"
+                        font_name: "BubbleGum.ttf"
+                        halign: 'center'
+            
+            MDRaisedButton:
+                size_hint: None, None
+                size: 150, 150
+                md_bg_color: 0.2, 0.6, 0.8, 1
+                on_release: app.root.current = 'tekatekagame'
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    Image:
+                        source: 'image/math4.jpg'
+                        size_hint_y: None
+                        height: 100
+                    MDLabel:
+                        text: "Teka-Teki"
+                        font_name: "BubbleGum.ttf"
+                        halign: 'center'
+        
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_y: None
+            height: dp(48)
+            MDIconButton:
+                icon: "image/set.png"
+                pos_hint: {"center_y": 0.5}
+                size_hint: None, None
+                size: dp(48), dp(48)
+                theme_icon_color: "Custom"
+                on_release: app.root.current = 'pengaturangame'
+            MDIconButton:
+                icon: "image/ho.png"
+                pos_hint: {"center_y": 0.5}
+                size_hint: None, None
+                size: dp(48), dp(48)
+                theme_icon_color: "Custom"
+                on_release: app.root.current = 'homegame'
+
+<BerhitungGame>:
+    name: 'berhitunggame'
+    FloatLayout:
+        Image:
+            source: 'image/bg.png'
+            allow_stretch: True
+            keep_ratio: False
+            size_hint: None, None
+            size: root.width, root.height
+            pos: 0, 0
+
+        MDBoxLayout:
+            size: root.size
+            orientation: "vertical"
+            padding: [10,10]
+
+            MDIconButton:
+                icon: "image/exit.png"
+                pos_hint: {"right": 1, "top": 1}
+                size_hint: None, None
+                size: dp(48), dp(48)
+                theme_icon_color: "Custom"
+                icon_color: 0, 0, 0, 1
+                on_release: app.root.current = 'mathgame'
+
+            FloatLayout:
+                size_hint_y: None
+                height: 400
+
+                Image:
+                    source: 'image/papan.png'
+                    size_hint: None, None
+                    size: 600, 600
+                    pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+                BoxLayout:
+                    id: sequence_layout
+                    orientation: 'horizontal'
+                    spacing: 10
+                    size_hint: None, None
+                    size: 800, 100
+                    pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+            MDGridLayout:
+                cols: 3
+                size_hint: 0.4, 0.7
+                row_default_height: 100
+                row_force_default: True
+                spacing: [50, 50]
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+                MDRaisedButton:
+                    id: option1
+                    size_hint: None, None
+                    size: 150, 150
+                    on_release: root.check_answer(self.text)
+
+                MDRaisedButton:
+                    id: option2
+                    size_hint: None, None
+                    size: 150, 150
+                    on_release: root.check_answer(self.text)
+
+                MDRaisedButton:
+                    id: option3
+                    size_hint: None, None
+                    size: 150, 150
+                    on_release: root.check_answer(self.text)
+
+            MDLabel:
+                id: result
+                text: ""
+                halign: 'center'
+                font_name: 'BubbleGum.ttf'
+                size_hint_y: None
+                height: 50
+                theme_text_color: 'Custom'
+                text_color: 0, 1, 0, 1
+
+<PenjumlahanGame>:
+    name: 'penjumlahangame'
+    FloatLayout:
+        Image:
+            source: 'image/bg.png'
+            allow_stretch: True
+            keep_ratio: False
+            size_hint: None, None
+            size: root.width, root.height
+            pos: 0, 0
+
+        MDBoxLayout:
+            size: root.size
+            orientation: "vertical"
+            padding: [10,10]
+
+            MDIconButton:
+                icon: "image/exit.png"
+                pos_hint: {"right": 1, "top": 1}
+                size_hint: None, None
+                size: dp(48), dp(48)
+                theme_icon_color: "Custom"
+                icon_color: 0, 0, 0, 1
+                on_release: app.root.current = 'mathgame'
+
+            FloatLayout:
+                size_hint_y: None
+                height: 400
+
+                Image:
+                    source: 'image/papan.png'
+                    size_hint: None, None
+                    size: 600, 600
+                    pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+                BoxLayout:
+                    orientation: 'horizontal'
+                    spacing: 10
+                    size_hint: None, None
+                    size: 300, 100
+                    pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+                    Image:
+                        id: num1_image
+                        source: 'image/1.png'
+                        size_hint: None, None
+                        size: 100, 100
+
+                    Image:
+                        source: 'image/+.png'
+                        size_hint: None, None
+                        size: 75, 75
+
+                    Image:
+                        id: num2_image
+                        source: 'image/2.png'
+                        size_hint: None, None
+                        size: 100, 100
+
+            MDGridLayout:
+                cols: 3
+                size_hint: 0.4, 0.7
+                row_default_height: 100
+                row_force_default: True
+                spacing: [50, 50]
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                MDRaisedButton:
+                    id: option1
+                    size_hint: None, None
+                    size: 150, 150
+                    on_release: root.check_answer(self.text)
+
+                MDRaisedButton:
+                    id: option2
+                    size_hint: None, None
+                    size: 150, 150
+                    on_release: root.check_answer(self.text)
+
+                MDRaisedButton:
+                    id: option3
+                    size_hint: None, None
+                    size: 150, 150
+                    on_release: root.check_answer(self.text)
+
+            MDLabel:
+                id: result
+                text: ""
+                halign: 'center'
+                font_name: 'BubbleGum.ttf'
+                size_hint_y: None
+                height: 50
+                theme_text_color: 'Custom'
+                text_color: 0, 1, 0, 1
+
+<PenguranganGame>:
+    name: 'pengurangangame'
+    FloatLayout:
+        Image:
+            source: 'image/bg.png'
+            allow_stretch: True
+            keep_ratio: False
+            size_hint: None, None
+            size: root.width, root.height
+            pos: 0, 0
+
+        MDBoxLayout:
+            size: root.size
+            orientation: "vertical"
+            padding: [10,10]
+
+            MDIconButton:
+                icon: "image/exit.png"
+                pos_hint: {"right": 1, "top": 1}
+                size_hint: None, None
+                size: dp(48), dp(48)
+                theme_icon_color: "Custom"
+                icon_color: 0, 0, 0, 1
+                on_release: app.root.current = 'mathgame'
+
+            FloatLayout:
+                size_hint_y: None
+                height: 400
+
+                Image:
+                    source: 'image/papan.png'
+                    size_hint: None, None
+                    size: 600, 600
+                    pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+                BoxLayout:
+                    orientation: 'horizontal'
+                    spacing: 10
+                    size_hint: None, None
+                    size: 300, 100
+                    pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+                    Image:
+                        id: num1_image
+                        source: 'image/1.png'
+                        size_hint: None, None
+                        size: 100, 100
+
+                    Image:
+                        source: 'image/-.png'
+                        size_hint: None, None
+                        size: 75, 75
+
+                    Image:
+                        id: num2_image
+                        source: 'image/2.png'
+                        size_hint: None, None
+                        size: 100, 100
+
+            MDGridLayout:
+                cols: 3
+                size_hint: 0.4, 0.7
+                row_default_height: 100
+                row_force_default: True
+                spacing: [50, 50]
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                MDRaisedButton:
+                    id: option1
+                    size_hint: None, None
+                    size: 150, 150
+                    on_release: root.check_answer(self.text)
+
+                MDRaisedButton:
+                    id: option2
+                    size_hint: None, None
+                    size: 150, 150
+                    on_release: root.check_answer(self.text)
+
+                MDRaisedButton:
+                    id: option3
+                    size_hint: None, None
+                    size: 150, 150
+                    on_release: root.check_answer(self.text)
+
+            MDLabel:
+                id: result
+                text: ""
+                halign: 'center'
+                font_name: 'BubbleGum.ttf'
+                size_hint_y: None
+                height: 50
+                theme_text_color: 'Custom'
+                text_color: 0, 1, 0, 1
+
+<TekaTekaGame>:
+    name: 'tekatekagame'
+    FloatLayout:
+        Image:
+            source: 'image/bg.png'
+            allow_stretch: True
+            keep_ratio: False
+            size_hint: None, None
+            size: root.width, root.height
+            pos: 0, 0
+
+        MDBoxLayout:
+            size: root.size
+            orientation: "vertical"
+            padding: [10,10]
+
+            MDIconButton:
+                icon: "image/exit.png"
+                pos_hint: {"right": 1, "top": 1}
+                size_hint: None, None
+                size: dp(48), dp(48)
+                theme_icon_color: "Custom"
+                icon_color: 0, 0, 0, 1
+                on_release: app.root.current = 'mathgame'
+
+            FloatLayout:
+                size_hint_y: None
+                height: 400
+
+                Image:
+                    source: 'image/papan.png'
+                    size_hint: None, None
+                    size: 600, 600
+                    pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+                BoxLayout:
+                    orientation: 'horizontal'
+                    spacing: 10
+                    size_hint: None, None
+                    size: 500, 100
+                    pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+                    Image:
+                        id: num1_image
+                        source: 'image/1.png'
+                        size_hint: None, None
+                        size: 100, 100
+
+                    Image:
+                        source: 'image/tanya.png'
+                        size_hint: None, None
+                        size: 75, 75
+
+                    Image:
+                        id: num2_image
+                        source: 'image/1.png'
+                        size_hint: None, None
+                        size: 100, 100
+
+                    Image:
+                        source: 'image/sama.png'
+                        size_hint: None, None
+                        size: 75, 75
+
+                    Image:
+                        id: result_image
+                        source: 'image/2.png'
+                        size_hint: None, None
+                        size: 100, 100
+
+            MDGridLayout:
+                cols: 3
+                size_hint: 0.4, 0.7
+                row_default_height: 100
+                row_force_default: True
+                spacing: [50, 50]
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+                MDRaisedButton:
+                    id: option1
+                    size_hint: None, None
+                    size: 150, 150
+                    on_release: root.check_answer(self.text)
+
+                MDRaisedButton:
+                    id: option2
+                    size_hint: None, None
+                    size: 150, 150
+                    on_release: root.check_answer(self.text)
+
+                MDRaisedButton:
+                    id: option3
+                    size_hint: None, None
+                    size: 150, 150
+                    on_release: root.check_answer(self.text)
+
+            MDLabel:
+                id: result
+                text: ""
+                halign: 'center'
+                font_name: 'BubbleGum.ttf'
+                size_hint_y: None
+                height: 50
+                theme_text_color: 'Custom'
+                text_color: 0, 1, 0, 1
+
+<PengaturanGame>:
+
+    name: 'pengaturangame'
+    FloatLayout:
+        Image:
+            source: 'image/bg.png'
+            allow_stretch: True
+            keep_ratio: False
+            size_hint: None, None
+            size: root.width, root.height
+            pos: 0, 0
+
+    MDBoxLayout:
+        size: root.size
+        orientation: "vertical"
+        padding: [10,10]
+
+        MDIconButton:
+            icon: "image/exit.png"
+            pos_hint: {"right": 1, "top": 1}
+            size_hint: None, None
+            size: dp(48), dp(48)
+            theme_icon_color: "Custom"
+            icon_color: 0, 0, 0, 1
+            on_release: app.root.current = 'mathgame'
+
+        MDLabel:
+            text: "Musik"
+            size_hint: 1, 0.1
+            font_style: "H2"
+            font_name: "BubbleGum.ttf"
+            halign:"center"
+            theme_text_color: "Custom"
+            text_color: 0, 0, 0, 1
+        MDSwitch:
+            pos_hint: {'center_x': .5, 'center_y': .5}
+        
+        MDLabel:
+            text: "Suara"
+            size_hint: 1, 0.1
+            font_style: "H2"
+            font_name: "BubbleGum.ttf"
+            halign:"center"
+            theme_text_color: "Custom"
+            text_color: 0, 0, 0, 1
+        
+        MDLabel:
+            text: "Pilih Bahasa"
+            size_hint: 1, 0.1
+            font_style: "H2"
+            font_name: "BubbleGum.ttf"
+            halign:"center"
+            theme_text_color: "Custom"
+            text_color: 0, 0, 0, 1

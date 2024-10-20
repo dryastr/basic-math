@@ -1,0 +1,44 @@
+#:kivy 1.0.9
+
+<MathGame>:
+    canvas.before:
+        Color:
+            rgba: (0,0,1,1)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    
+    BoxLayout:
+        size: root.size
+        orientation: "vertical"
+        padding: [10,10]
+
+        Label:
+            text: "Hai"
+            size_hint: 1, 0.1
+            background_color:1,1,0,0
+
+        GridLayout:
+            cols: 2
+            size_hint: 1 , 0.3
+            row_default_height: 150
+            row_force_default: True
+            spacing: [50,50]
+
+            Button:
+                text: "Hello World!"
+            
+            Button:
+                text: "Goodbye World!"
+
+            Button:
+                text: "Hello World!"
+            
+            Button:
+                text: "Goodbye World!"
+        
+        Label:
+            text: "pengaturan"
+            size_hint: 1, 0.5
+            valign: "bottom"
+            halign: "right"
